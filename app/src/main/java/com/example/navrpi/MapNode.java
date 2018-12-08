@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 
 import java.util.HashMap;
 
-
+//full commentary for all database classes can be found in the Professor database classes (ProfessorDatabase, ProfessorDao, Professor, and ProfessorAsyncPopulate)
 @Entity
 public class MapNode {
 

@@ -2,6 +2,7 @@ package com.example.navrpi;
 
 import android.os.AsyncTask;
 
+//full commentary for all database classes can be found in the Professor database classes (ProfessorDatabase, ProfessorDao, Professor, and ProfessorAsyncPopulate)
 public class ClassroomAsyncPopulate extends AsyncTask<Void, Void, Void> {
 
     private final ClassroomDao cDao;

@@ -12,11 +12,11 @@ public interface ProfessorDao {
     //Data access object for professor database. Provides wrappers for standard SQL queries.
     //the top line defines the SQL, the bottom line the associated java function
 
-    @Query("SELECT * FROM professor WHERE lastName LIKE :search")
-    List<Professor> searchLastName(String search);
+    @Query("SELECT * FROM professor WHERE lastName LIKE :searchName")
+    List<Professor> searchLastName(String searchName);
 
     @Insert
-    void insert(Professor pro);
+    void insert(Professor prof);
 
     @Query("SELECT * FROM professor")
     List<Professor> getAllProfessors();

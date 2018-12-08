@@ -9,9 +9,14 @@ import android.content.Context;
 @Database(entities = {Professor.class}, version = 3)
 public abstract class ProfessorDatabase extends RoomDatabase {
 
+    //the actual database class for professors
+
     public abstract ProfessorDao professorDao();
+    //this is the database's data access object, to access the database all you have to do is build it, then call this method
 
     private static volatile ProfessorDatabase INSTANCE;
+    //this is to make sure we don't build the database twice in a single program run, with the code below
+
 
     static ProfessorDatabase getDatabase( final Context context) { //method to construct the database, a singleton class
         if (INSTANCE == null) {
@@ -34,7 +39,7 @@ public abstract class ProfessorDatabase extends RoomDatabase {
                 @Override
                 public void onOpen (SupportSQLiteDatabase db){ //used to initialize, passed as argument to builder statement
                     super.onOpen(db);
-                    new ProfessorAsyncPopulate(INSTANCE).execute();
+                    new ProfessorAsyncPopulate(INSTANCE).execute(); //executes the doInBackground() method in the class, which adds the data
                 }
             };
 }

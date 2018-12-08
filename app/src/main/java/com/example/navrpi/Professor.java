@@ -8,7 +8,9 @@ import android.support.annotation.NonNull;
 public class Professor {
 
     //simple class to old data about professors, including name and node (room)
-
+    //each member variable has a getter and setter function per Room's guidelines
+    //however, we only effectively use the getters, our data does not need to change
+    //after it is inserted under normal operation
 
     private String firstName;
 
@@ -19,6 +21,8 @@ public class Professor {
     @NonNull
     @PrimaryKey
     private String id;
+    //the id is made from a combination of first and last name,
+    //id must be unique for Room
 
     public Professor(String firstName, String lastName, String node) {
         this.firstName = firstName;

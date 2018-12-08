@@ -6,6 +6,7 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
+//full commentary for all database classes can be found in the Professor database classes (ProfessorDatabase, ProfessorDao, Professor, and ProfessorAsyncPopulate)
 @Database(entities = {Classroom.class}, version = 2)
 public abstract class ClassroomDatabase extends RoomDatabase {
     public abstract ClassroomDao classroomDao();
