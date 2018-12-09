@@ -1,21 +1,8 @@
 package com.example.navrpi;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.content.Intent;
 import android.support.v7.widget.Toolbar;
@@ -29,10 +16,7 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
-import static com.example.navrpi.R.layout.drawerlayout;
 
 public class buildings extends AppCompatActivity {
 
@@ -94,7 +78,7 @@ public class buildings extends AppCompatActivity {
         NodeDao nDao = NodeDatabase.getDatabase(getApplicationContext()).nodeDao();
         VerticiesDao vDao = VerticiesDatabase.getDatabase(getApplicationContext()).VerticiesDao();
 
-        nodes = nDao.searchBuildFloor(building);
+        nodes = nDao.getNodesByBuilding(building);
 
 
         Drawer d = new Drawer(buildings.this, (ArrayList<MapNode>) nodes, pdfView);

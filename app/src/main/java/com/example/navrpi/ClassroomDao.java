@@ -14,7 +14,10 @@ public interface ClassroomDao {
     //the top line defines the SQL, the bottom line the associated java function
 
     @Query("SELECT * FROM classroom WHERE number LIKE :search")
-    List<Classroom> searchNumber(int search);
+    List<Classroom> searchNumber(String search);
+
+    @Query("SELECT * FROM classroom WHERE building LIKE :search")
+    List<Classroom> searchBuilding(String search);
 
     @Insert
     void insert(Classroom rm);

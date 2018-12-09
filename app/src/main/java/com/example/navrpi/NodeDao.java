@@ -15,7 +15,10 @@ public interface NodeDao {
     //the top line defines the SQL, the bottom line the associated java function
 
     @Query("SELECT * FROM mapNode WHERE building LIKE :build")
-    List<MapNode> searchBuildFloor(String build);
+    List<MapNode> getNodesByBuilding(String build);
+
+    @Query("SELECT * FROM mapNode WHERE 'building' LIKE :build AND 'floor' LIKE :flr")
+    List<MapNode> searchBuildFloor(String build, int flr);
 
     @Insert
     void insert(MapNode nod);
@@ -25,10 +28,6 @@ public interface NodeDao {
 
     @Query("DELETE FROM mapNode")
     void DeleteAll();
-
-    @Query("SELECT * FROM mapNode WHERE building LIKE :b")
-    List<MapNode> getNodesByBuilding(String b);
-
 
     @Query("SELECT * FROM mapNode WHERE id LIKE :i")
     List<MapNode> searchID(String i);

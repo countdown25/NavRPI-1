@@ -5,15 +5,15 @@ import android.os.AsyncTask;
 //full commentary for all database classes can be found in the Professor database classes (ProfessorDatabase, ProfessorDao, Professor, and ProfessorAsyncPopulate)
 public class BuildingAsyncPopulate extends AsyncTask<Void, Void, Void> {
 
-    private final BuildingDao bDao;
+    private final BuildingDao buildingDao;
 
     BuildingAsyncPopulate(BuildingDatabase db) {
-        bDao = db.buildingDao();
+        buildingDao = db.buildingDao();
     }
 
     @Override
     protected Void doInBackground(final Void... params){
-        bDao.deleteAll();
+        buildingDao.deleteAll();
         Building[] bds = {
                 new Building("Walker",42.7308527,-73.6825036 ),
                 new Building("Union",42.73005269,-73.67669504),
@@ -41,7 +41,7 @@ public class BuildingAsyncPopulate extends AsyncTask<Void, Void, Void> {
                 new Building("Amos Eaton",42.7301849,-73.682557),
                 new Building("Academy",42.7272973,-73.6786666)};
         for (int i = 0; i < bds.length; i++) {
-            bDao.insert(bds[i]);
+            buildingDao.insert(bds[i]);
         }
 
         return null;

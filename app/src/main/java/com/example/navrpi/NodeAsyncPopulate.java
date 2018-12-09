@@ -5,15 +5,15 @@ import android.os.AsyncTask;
 //full commentary for all database classes can be found in the Professor database classes (ProfessorDatabase, ProfessorDao, Professor, and ProfessorAsyncPopulate)
 public class NodeAsyncPopulate extends AsyncTask<Void, Void, Void> {
 
-    private final NodeDao nDao;
+    private final NodeDao nodeDao;
 
     NodeAsyncPopulate(NodeDatabase db) {
-        nDao = db.nodeDao();
+        nodeDao = db.nodeDao();
     }
 
     @Override
     protected Void doInBackground(final Void... params) {
-        nDao.DeleteAll(); ////clear anything that's somehow already there (Room can crash if we try inserting the same thing twice)
+        nodeDao.DeleteAll(); ////clear anything that's somehow already there (Room can crash if we try inserting the same thing twice)
         MapNode startNodes[] = new MapNode[]{
                 new MapNode(450,200, 3, "Walker", "hallway"),
                 new MapNode(450,550, 3, "Walker", "hallway"),
@@ -32,7 +32,7 @@ public class NodeAsyncPopulate extends AsyncTask<Void, Void, Void> {
         };
         for (MapNode m : startNodes)
         {
-            nDao.insert(m);
+            nodeDao.insert(m);
         }
 
         return null;
